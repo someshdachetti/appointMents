@@ -1,0 +1,19 @@
+/* Write your CSS here */
+.appointment-cards {
+  height: 20vh;
+  width: 43vw;
+  border-radius: 8px;
+  border-width: 0px;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 33);
+  margin: 10px;
+}
+.x {
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+}
+.star-img {
+  height: 28px;
+  width: 28px;
+}

@@ -1,0 +1,54 @@
+.bgColor {
+  background-image: linear-gradient(to bottom, #9796f0, #fbc7d4);
+  height: 100vh;
+  width: 100vw;
+}
+
+.white-card {
+  background-color: #ffffff;
+  width: 170vw;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 19);
+  height: 200vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.appointment-details {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: 50%;
+}
+button {
+  height: 23px;
+  width: 44px;
+  background-color: #8b5cf6;
+  color: white;
+  border-radius: 6px;
+  border-width: 0px;
+}
+.Appointment-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: space-around;
+  margin: 10px;
+}
+.favAppointments {
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+}
+.b {
+  color: white;
+  background-color: #9897f0;
+  font-family: 'Lucida Sans';
+  font-size: 15px;
+  height: 23px;
+  width: 77px;
+  border-radius: 6px;
+  border-width: 0px;
+}
