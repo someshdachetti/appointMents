@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
+import {format} from 'date-fns'
 import AppointmentItem from '../AppointmentItem'
 
 import './index.css'
@@ -28,11 +29,15 @@ class Appointments extends Component {
   AddingtoAppointment = event => {
     event.preventDefault()
     const {TextInput, selectingDate} = this.state
+    const formatedDate = selectingDate
+      ? format(new Date(selectingDate), 'dd MMMM yyyy, EEEE')
+      : ''
     const x = {
       id: uuidv4(),
       TextInput,
       selectingDate,
       isFavorite: false,
+      date: formatedDate,
     }
     this.setState(prevState => ({
       AddtoAppointment: [...prevState.AddtoAppointment, x],
@@ -64,9 +69,9 @@ class Appointments extends Component {
             <form onSubmit={this.AddingtoAppointment}>
               <h1>Add Appointment</h1>
               <br />
-              <label htmlFor="input">title</label>
+              <label htmlFor="date">title</label>
               <br />
-              <input id="input" type="text" onChange={this.onText} />
+              <input id="date" type="text" onChange={this.onText} />
               <br />
               <label htmlFor="dates">Date</label>
               <br />
@@ -93,17 +98,19 @@ class Appointments extends Component {
                   Starred
                 </button>
               </div>
-              <div className="Appointment-list">
-                {AddtoAppointment.filter(
-                  each => !showItIsfav || each.isFavorite,
-                ).map(each => (
-                  <AppointmentItem
-                    key={each.TextInput}
-                    all={each}
-                    makeStar={() => this.makeStar(each.id)}
-                  />
-                ))}
-              </div>
+              <ul>
+                <div className="Appointment-list">
+                  {AddtoAppointment.filter(
+                    each => !showItIsfav || each.isFavorite,
+                  ).map(each => (
+                    <AppointmentItem
+                      key={each.TextInput}
+                      all={each}
+                      makeStar={() => this.makeStar(each.id)}
+                    />
+                  ))}
+                </div>
+              </ul>
             </form>
           </div>
         </div>
